@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kesimpulan Siswa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Press Start 2P', cursive;
+      background-image: url('assets/background menu.png'); /* GANTI dengan background kamu */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 100vh;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 4px solid yellow;
+      border-radius: 15px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: yellow;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 10px;
+    }
+
+    input, textarea {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border: 2px solid #00ffcc;
+      border-radius: 6px;
+      margin-top: 5px;
+      background: #111;
+      color: #0f0;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 20px;
+      background: #00cc66;
+      border: none;
+      font-size: 10px;
+      color: #000;
+      cursor: pointer;
+      border-radius: 6px;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #00ff99;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>KESIMPULAN SISWA</h1>
+
+    <form id="kesimpulanForm">
+      <label for="nama">Nama Siswa:</label>
+      <input type="text" id="nama" name="nama" required>
+
+      <label for="kelas">Kelas:</label>
+      <input type="text" id="kelas" name="kelas" required>
+
+      <label for="kesimpulan">Kesimpulan Materi:</label>
+      <textarea id="kesimpulan" name="kesimpulan" rows="5" required></textarea>
+
+      <button type="submit">KIRIM</button>
+    </form>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxYB5lO9rKiMJ1UcjqaKKMcTpgA1MiR2USutHthQDDGeiccF5ZL-3VYDSgv9aYkHl8GBg/exec'; // GANTI DENGAN URL WEB APP MILIKMU
+
+    document.getElementById('kesimpulanForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => {
+        alert('Kesimpulan berhasil dikirim!');
+        window.location.href = 'terimakasih.html'; // GANTI dengan halaman selanjutnya
+      })
+      .catch((error) => {
+        alert('Gagal mengirim. Silakan coba lagi.');
+        console.error('Error!', error.message);
+      });
+    });
+  </script>
+
+</body>
+</html>

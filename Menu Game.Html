@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Koordinat</title>
+  <link rel="stylesheet" href="Style5.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="fade-in">
+  <!-- Tombol Musik -->
+  <button id="musicToggle" onclick="toggleMusic()">🔊</button>
+
+  <!-- Kontainer Utama -->
+  <div class="game-container">
+    <h1 class="title">GAME<br>KOORDINAT</h1>
+
+    <!-- Input Nama -->
+    <input type="text" id="namaSiswa" placeholder="Masukkan Nama Anda" />
+
+    <!-- Tombol Play -->
+    <button id="playButton">LET'S PLAY!</button>
+  </div>
+
+  <!-- Musik Latar -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="assets/Music Menu.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- Script -->
+  <script>
+    const URL = "https://script.google.com/macros/s/AKfycbx4Y0YhDqIk10R6Ypi1g8rSVzcgjS1HBmRSM4p2x00JML94p4sg6JBDyd3sb-cZ78dPQw/exec"; // GANTI dengan link Apps Script kamu
+
+    // Kirim data ke Google Sheet
+    function kirimNama(nama) {
+      fetch(URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `nama=${encodeURIComponent(nama)}`
+      }).then(() => {
+        console.log("Nama terkirim");
+      }).catch(err => {
+        console.error("Gagal kirim:", err);
+      });
+    }
+
+    // Tombol "PLAY"
+    document.getElementById('playButton').addEventListener('click', function () {
+      const nama = document.getElementById('namaSiswa').value.trim();
+      const music = document.getElementById('bgMusic');
+
+      if (!nama) {
+        alert("Masukkan nama terlebih dahulu!");
+        return;
+      }
+
+      localStorage.setItem("namaSiswa", nama); // Simpan nama lokal
+      kirimNama(nama); // Kirim ke Google Sheet
+      music.play(); // Pastikan musik aktif
+
+      // Transisi dan lanjut ke Game.html
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "Game.html";
+      }, 1000);
+    });
+
+    // Toggle Musik
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      const icon = document.getElementById('musicToggle');
+      if (music.paused) {
+        music.play();
+        icon.textContent = '🔊';
+      } else {
+        music.pause();
+        icon.textContent = '🔇';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Petualangan Edukasi</title>
+  <link rel="stylesheet" href="Style6.css">
+</head>
+<body>
+  <canvas id="gameCanvas" width="960" height="540"></canvas>
+
+  <!-- Popup Soal -->
+  <div id="popup" class="popup hidden">
+    <img src="assets/Soal1.png" alt="Soal Gambar" style="width: 100%;">
+    
+    <label for="nama"><strong> Nama:</strong></label><br>
+    <input type="text" id="nama" placeholder="Masukkan nama kamu" /><br><br>
+
+    <p><strong>Pertanyaan:</strong> Tentukan koordinat dari lokasi yang ditunjukan dari peta tersebut! dan jelaskan posisinya jika digambarkan dalam koordinat kartesius!</p>
+    <textarea id="jawaban" placeholder="Tuliskan jawabanmu di sini..."></textarea><br>
+
+    <button onclick="submitJawaban()">Kirim Jawaban</button>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

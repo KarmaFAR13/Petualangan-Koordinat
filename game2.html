@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Petualangan Edukasi</title>
+  <link rel="stylesheet" href="Style8.css">
+</head>
+<body>
+  <!-- Canvas Game -->
+  <canvas id="gameCanvas" width="960" height="540"></canvas>
+
+  <!-- Popup Soal -->
+  <div id="popup" class="popup hidden">
+    <img src="assets/Soal3.png" alt="Soal Gambar" style="width: 100%; border-radius: 8px;">
+
+    <label for="nama"><strong>Nama:</strong></label><br>
+    <input type="text" id="nama" placeholder="Masukkan nama kamu" /><br><br>
+
+    <p><strong>Pertanyaan:</strong> Berdasarkan gambar tersebut, bagaimanakah semua posisi garis terhadap sumbu koordinat? Apakah ada yang saling tegak lurus?</p>
+    <textarea id="jawaban" placeholder="Tuliskan jawabanmu di sini..."></textarea><br>
+
+    <button onclick="submitJawaban()">Kirim Jawaban</button>
+  </div>
+
+  <!-- Musik Latar -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="assets/Music Menu.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Game Script -->
+  <script src="game2.js"></script>
+
+  <!-- Autoplay Handler -->
+  <script>
+    window.addEventListener('click', function () {
+      const bgMusic = document.getElementById("bgMusic");
+      if (bgMusic.paused) {
+        bgMusic.play().catch(err => {
+          console.log("Autoplay gagal:", err);
+        });
+      }
+    }, { once: true }); // hanya aktif sekali
+  </script>
+</body>
+</html>
