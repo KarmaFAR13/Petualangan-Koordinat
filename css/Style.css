@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-image: url(assets/Background\ Menu.png);
+  background-size: cover;      /* Agar gambar memenuhi layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Agar gambar tetap terpusat */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  text-align: center;
+  position: relative;
+  color: white;
+  text-shadow: 3px 3px #000;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  background: yellow;
+  border: 4px solid #000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #000;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+.lanjut {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: lightgreen;
+  font-size: 12px;
+  text-decoration: none;
+  border: 2px solid lightgreen;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.lanjut:hover {
+  background-color: lightgreen;
+  color: black;
+}
+#musicToggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: yellow;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 2px 2px #333;
+  transition: background-color 0.3s ease;
+}
+
+#musicToggle:hover {
+  background-color: gold;
+}

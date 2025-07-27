@@ -1,0 +1,105 @@
+/* === ATUR BACKGROUND HALAMAN === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-image: url('assets/Background Menu.png'); /* GANTI sesuai gambar kamu */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  opacity: 1;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Saat keluar */
+body.fade-out {
+  opacity: 0;
+}
+
+/* === KONTEN UTAMA MATERI === */
+.materi-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* JUDUL ATAS */
+.judul-box {
+  background: yellow;
+  border: 5px solid black;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+/* VIDEO ATAU GAMBAR MATERI */
+.materi-video-wrapper {
+  position: relative;
+  display: inline-block;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+}
+
+/* GAMBAR MATERI */
+.materi-gambar {
+  width: 640px;
+  max-width: 50%;
+  border-radius: 5px;
+}
+
+/* TOMBOL PANAH */
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #a1471d;
+  border: none;
+  color: white;
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 2px 2px #000;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.arrow-button.left {
+  left: -80px;
+}
+.arrow-button.right {
+  right: -80px;
+}
+
+
+.arrow-button:hover {
+  transform: translateY(-50%) scale(1.2);
+  background-color: #ff6600;
+  box-shadow: 4px 4px #000;
+}
+
+/* KOTAK DESKRIPSI DI BAWAH */
+.deskripsi-box {
+  background: yellow;
+  border: 5px solid black;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: black;
+  line-height: 1.6;
+  text-align: left;
+  width: 640px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
